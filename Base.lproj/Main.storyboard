@@ -1,0 +1,124 @@
+<?xml version="1.0" encoding="UTF-8" standalone="no"?>
+<document type="com.apple.InterfaceBuilder3.CocoaTouch.Storyboard.XIB" version="3.0" toolsVersion="11201" systemVersion="15G22010" targetRuntime="iOS.CocoaTouch" propertyAccessControl="none" useAutolayout="YES" useTraitCollections="YES" colorMatched="YES" initialViewController="ZF4-bc-D9v">
+    <dependencies>
+        <deployment identifier="iOS"/>
+        <plugIn identifier="com.apple.InterfaceBuilder.IBCocoaTouchPlugin" version="11161"/>
+        <capability name="Constraints to layout margins" minToolsVersion="6.0"/>
+        <capability name="documents saved in the Xcode 8 format" minToolsVersion="8.0"/>
+    </dependencies>
+    <scenes>
+        <!--Home-->
+        <scene sceneID="tne-QT-ifu">
+            <objects>
+                <viewController id="BYZ-38-t0r" customClass="ViewController" customModule="Weather" customModuleProvider="target" sceneMemberID="viewController">
+                    <layoutGuides>
+                        <viewControllerLayoutGuide type="top" id="y3c-jy-aDJ"/>
+                        <viewControllerLayoutGuide type="bottom" id="wfy-db-euE"/>
+                    </layoutGuides>
+                    <view key="view" contentMode="scaleToFill" id="8bC-Xf-vdC">
+                        <rect key="frame" x="0.0" y="0.0" width="375" height="667"/>
+                        <autoresizingMask key="autoresizingMask" widthSizable="YES" heightSizable="YES"/>
+                        <subviews>
+                            <tableView clipsSubviews="YES" contentMode="scaleToFill" fixedFrame="YES" alwaysBounceVertical="YES" dataMode="prototypes" style="plain" separatorStyle="default" rowHeight="44" sectionHeaderHeight="28" sectionFooterHeight="28" translatesAutoresizingMaskIntoConstraints="NO" id="tyU-aS-bc6">
+                                <frame key="frameInset" minY="28" width="375" height="639"/>
+                                <autoresizingMask key="autoresizingMask" flexibleMaxX="YES" flexibleMaxY="YES"/>
+                                <color key="backgroundColor" white="1" alpha="1" colorSpace="calibratedWhite"/>
+                                <connections>
+                                    <outlet property="dataSource" destination="BYZ-38-t0r" id="JkI-dA-9Er"/>
+                                    <outlet property="delegate" destination="BYZ-38-t0r" id="x8v-br-ckd"/>
+                                </connections>
+                            </tableView>
+                        </subviews>
+                        <color key="backgroundColor" red="1" green="1" blue="1" alpha="1" colorSpace="custom" customColorSpace="sRGB"/>
+                    </view>
+                    <navigationItem key="navigationItem" title="Home" id="Ida-bc-cyK">
+                        <barButtonItem key="leftBarButtonItem" title="Delete All" id="fr4-WG-7vI">
+                            <connections>
+                                <action selector="deleteAllData:" destination="BYZ-38-t0r" id="usJ-an-2JY"/>
+                            </connections>
+                        </barButtonItem>
+                        <barButtonItem key="rightBarButtonItem" systemItem="search" id="O7O-cR-OWc">
+                            <connections>
+                                <action selector="searchBtnTap:" destination="BYZ-38-t0r" id="H6e-qN-rHJ"/>
+                            </connections>
+                        </barButtonItem>
+                    </navigationItem>
+                    <connections>
+                        <outlet property="deleteAll" destination="fr4-WG-7vI" id="ekr-Wf-JH4"/>
+                        <outlet property="tableview" destination="tyU-aS-bc6" id="OKc-Y1-Tvp"/>
+                    </connections>
+                </viewController>
+                <placeholder placeholderIdentifier="IBFirstResponder" id="dkx-z0-nzr" sceneMemberID="firstResponder"/>
+            </objects>
+            <point key="canvasLocation" x="1055" y="-40"/>
+        </scene>
+        <!--Search Controller-->
+        <scene sceneID="Caa-zL-c0t">
+            <objects>
+                <viewController storyboardIdentifier="searchVC" useStoryboardIdentifierAsRestorationIdentifier="YES" id="GdH-c5-GoI" customClass="SearchController" customModule="Weather" customModuleProvider="target" sceneMemberID="viewController">
+                    <layoutGuides>
+                        <viewControllerLayoutGuide type="top" id="9bw-ST-6oU"/>
+                        <viewControllerLayoutGuide type="bottom" id="qMB-Jr-ocW"/>
+                    </layoutGuides>
+                    <view key="view" contentMode="scaleToFill" id="nEd-MV-0SL">
+                        <rect key="frame" x="0.0" y="0.0" width="375" height="667"/>
+                        <autoresizingMask key="autoresizingMask" widthSizable="YES" heightSizable="YES"/>
+                        <subviews>
+                            <textField opaque="NO" clipsSubviews="YES" contentMode="scaleToFill" contentHorizontalAlignment="left" contentVerticalAlignment="center" borderStyle="roundedRect" placeholder="City Name" textAlignment="center" minimumFontSize="17" translatesAutoresizingMaskIntoConstraints="NO" id="iJ8-Zv-Pmo">
+                                <nil key="textColor"/>
+                                <fontDescription key="fontDescription" type="system" pointSize="14"/>
+                                <textInputTraits key="textInputTraits" returnKeyType="search"/>
+                                <connections>
+                                    <outlet property="delegate" destination="GdH-c5-GoI" id="YL4-ht-woc"/>
+                                </connections>
+                            </textField>
+                            <tableView clipsSubviews="YES" contentMode="scaleToFill" alwaysBounceVertical="YES" dataMode="prototypes" style="plain" separatorStyle="default" rowHeight="44" sectionHeaderHeight="28" sectionFooterHeight="28" translatesAutoresizingMaskIntoConstraints="NO" id="0cN-Bg-9B5">
+                                <color key="backgroundColor" white="1" alpha="1" colorSpace="calibratedWhite"/>
+                                <constraints>
+                                    <constraint firstAttribute="height" priority="250" constant="493" id="OKu-RZ-Hdn"/>
+                                </constraints>
+                                <connections>
+                                    <outlet property="dataSource" destination="GdH-c5-GoI" id="APp-qs-oem"/>
+                                    <outlet property="delegate" destination="GdH-c5-GoI" id="LzR-I9-OLm"/>
+                                </connections>
+                            </tableView>
+                        </subviews>
+                        <color key="backgroundColor" white="1" alpha="1" colorSpace="calibratedWhite"/>
+                        <constraints>
+                            <constraint firstItem="iJ8-Zv-Pmo" firstAttribute="trailing" secondItem="nEd-MV-0SL" secondAttribute="trailingMargin" id="1Kz-dI-Y7S"/>
+                            <constraint firstItem="qMB-Jr-ocW" firstAttribute="top" secondItem="0cN-Bg-9B5" secondAttribute="bottom" id="6TT-4x-ngo"/>
+                            <constraint firstItem="0cN-Bg-9B5" firstAttribute="top" secondItem="iJ8-Zv-Pmo" secondAttribute="bottom" constant="39" id="8e3-EC-Lcl"/>
+                            <constraint firstItem="iJ8-Zv-Pmo" firstAttribute="leading" secondItem="nEd-MV-0SL" secondAttribute="leadingMargin" id="X9m-8O-0gH"/>
+                            <constraint firstAttribute="trailing" secondItem="0cN-Bg-9B5" secondAttribute="trailing" id="ol8-Lo-dUx"/>
+                            <constraint firstItem="0cN-Bg-9B5" firstAttribute="leading" secondItem="nEd-MV-0SL" secondAttribute="leading" id="u8N-RY-159"/>
+                        </constraints>
+                    </view>
+                    <connections>
+                        <outlet property="tableView" destination="0cN-Bg-9B5" id="LDD-Rv-nt0"/>
+                        <outlet property="textield" destination="iJ8-Zv-Pmo" id="4Zo-I3-tAp"/>
+                    </connections>
+                </viewController>
+                <placeholder placeholderIdentifier="IBFirstResponder" id="5ng-tl-rGw" userLabel="First Responder" sceneMemberID="firstResponder"/>
+            </objects>
+            <point key="canvasLocation" x="1820" y="-40.029985007496258"/>
+        </scene>
+        <!--Navigation Controller-->
+        <scene sceneID="vE3-Gs-WZT">
+            <objects>
+                <navigationController automaticallyAdjustsScrollViewInsets="NO" id="ZF4-bc-D9v" sceneMemberID="viewController">
+                    <toolbarItems/>
+                    <navigationBar key="navigationBar" contentMode="scaleToFill" id="IUZ-bs-yEg">
+                        <rect key="frame" x="0.0" y="0.0" width="375" height="44"/>
+                        <autoresizingMask key="autoresizingMask"/>
+                    </navigationBar>
+                    <nil name="viewControllers"/>
+                    <connections>
+                        <segue destination="BYZ-38-t0r" kind="relationship" relationship="rootViewController" id="4ni-1G-rri"/>
+                    </connections>
+                </navigationController>
+                <placeholder placeholderIdentifier="IBFirstResponder" id="YvA-dW-fMM" userLabel="First Responder" sceneMemberID="firstResponder"/>
+            </objects>
+            <point key="canvasLocation" x="136.80000000000001" y="138.98050974512745"/>
+        </scene>
+    </scenes>
+</document>
